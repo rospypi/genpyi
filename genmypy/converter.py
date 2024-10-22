@@ -21,7 +21,7 @@ if TYPE_CHECKING:
 
 
 _GENMSG_PRIMITIVES = {
-    "byte": "byte",
+    "byte": "int",
     "char": "str",
     "int8": "int",
     "int16": "int",
