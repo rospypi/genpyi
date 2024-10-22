@@ -10,6 +10,7 @@ def test_std_msgs(expected_dir, std_msgs_path):
     # type: (str, str) -> None
     package = "std_msgs"  # type: str
     package_files = [
+        message_path(std_msgs_path, "Byte"),
         message_path(std_msgs_path, "Duration"),
         message_path(std_msgs_path, "Header"),
         message_path(std_msgs_path, "Time"),
@@ -22,6 +23,7 @@ def test_std_msgs(expected_dir, std_msgs_path):
     with temporary_directory() as td:
         cli.run_message(package, package_files, td, search_paths)
 
+        assert_output_equals(expected_dir, td, "_Byte.pyi")
         assert_output_equals(expected_dir, td, "_Duration.pyi")
         assert_output_equals(expected_dir, td, "_Header.pyi")
         assert_output_equals(expected_dir, td, "_Time.pyi")
